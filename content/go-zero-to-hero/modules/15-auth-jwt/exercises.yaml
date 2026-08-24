@@ -39,8 +39,8 @@ exercises:
     checks:
       - type: contains
         value: 'func requireAuth'
-      - type: contains
-        value: '401'
+      - type: regex
+        pattern: 'StatusUnauthorized|401'
       - type: contains
         value: 'Unauthorized'
 

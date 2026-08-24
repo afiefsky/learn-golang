@@ -41,15 +41,15 @@ exercises:
     hint: if conflict { return http.StatusConflict }; return http.StatusCreated — import net/http
     checks:
       - type: contains
-        value: '409'
+        value: 'StatusConflict'
       - type: contains
-        value: '201'
+        value: 'StatusCreated'
 
   - id: 13-idempotency-check
     title: Idempotency Map
     order: 3
     narrative: |
-      Given `seen := map[string]bool`, write `func isReplay(key string) bool` returning true if key already in map, else mark seen and return false.
+      Given `seen := map[string]bool`, write `func isReplay(key string, seen map[string]bool) bool` returning true if key already in map, else mark seen and return false.
       Test keys "abc" twice — print results (false then true).
     starterCode: |
       package main

@@ -86,10 +86,14 @@
 
     const quizLink = document.getElementById('quizLink');
     quizLink.href = `/quiz.html?id=${encodeURIComponent(mod.quizId)}&module=${encodeURIComponent(moduleId)}`;
+    quizLink.onclick = null;
     if (allExercisesDone && lessonDone && projectDone) {
       quizLink.classList.remove('disabled');
+      quizLink.setAttribute('aria-disabled', 'false');
     } else {
       quizLink.classList.add('disabled');
+      quizLink.setAttribute('aria-disabled', 'true');
+      quizLink.onclick = (e) => e.preventDefault();
     }
   }
 
