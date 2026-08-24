@@ -1,0 +1,34 @@
+{
+  "id": "12-chi-rest-api-quiz",
+  "title": "Chi REST API Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "How do you read /accounts/{id} path param in Chi?",
+      "options": ["r.Path(\"id\")", "chi.URLParam(r, \"id\")", "r.Query(\"id\")", "chi.Param(id)"],
+      "answer": 1
+    },
+    {
+      "type": "mcq",
+      "question": "Chi is built on?",
+      "options": ["fasthttp", "net/http", "gRPC", "Fiber"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Function to register GET route is r._______.",
+      "answer": "get"
+    },
+    {
+      "type": "mcq",
+      "question": "Where should JSON decoding into DTO happen?",
+      "options": ["In middleware only", "In handler before service call", "In database layer", "Never decode JSON"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Chi router constructor is chi.New_______.",
+      "answer": "router"
+    }
+  ]
+}

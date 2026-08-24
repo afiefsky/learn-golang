@@ -1,0 +1,34 @@
+{
+  "id": "10-concurrency-quiz",
+  "title": "Concurrency Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "How do you start a goroutine?",
+      "options": ["thread()", "async go", "go keyword", "spawn()"],
+      "answer": 2
+    },
+    {
+      "type": "mcq",
+      "question": "Channels are used for?",
+      "options": ["SQL queries", "Communication between goroutines", "JSON parsing", "HTTP routing"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Package for WaitGroup is _______.",
+      "answer": "sync"
+    },
+    {
+      "type": "mcq",
+      "question": "Should transfer debit/credit run unsynchronized without transactions?",
+      "options": ["Yes always", "No — use DB transactions for money", "Only on weekends", "Only with Fiber"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Receive from channel ch with _______ operator.",
+      "answer": "<-"
+    }
+  ]
+}

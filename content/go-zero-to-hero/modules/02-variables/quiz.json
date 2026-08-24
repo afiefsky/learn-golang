@@ -1,0 +1,34 @@
+{
+  "id": "02-variables-quiz",
+  "title": "Variables & Types Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "Which operator declares and initializes a variable inside a function?",
+      "options": ["=", ":)", ":=", "=="],
+      "answer": 2
+    },
+    {
+      "type": "mcq",
+      "question": "What is the zero value of an int in Go?",
+      "options": ["nil", "0", "1", "undefined"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "The keyword to declare a variable with an explicit type is _______.",
+      "answer": "var"
+    },
+    {
+      "type": "mcq",
+      "question": "Which type holds true or false?",
+      "options": ["bit", "bool", "boolean", "truth"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "The zero value of a string is an empty _______.",
+      "answer": "string"
+    }
+  ]
+}

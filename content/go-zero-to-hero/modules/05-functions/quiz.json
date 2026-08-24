@@ -1,0 +1,34 @@
+{
+  "id": "05-functions-quiz",
+  "title": "Functions Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "How many values can a Go function return?",
+      "options": ["Only one", "At most two", "Any number", "Only zero or one"],
+      "answer": 2
+    },
+    {
+      "type": "mcq",
+      "question": "What is the common return pattern for operations that can fail?",
+      "options": ["(bool, string)", "(result, error)", "(int, int)", "(any, any)"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Shorthand for two int parameters a and b is func f(a, b _______).",
+      "answer": "int"
+    },
+    {
+      "type": "mcq",
+      "question": "Where should business logic like fee calculation live?",
+      "options": ["In HTTP handlers only", "In reusable functions/services", "In JSON tags", "In main only"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "The keyword to send a value back from a function is _______.",
+      "answer": "return"
+    }
+  ]
+}

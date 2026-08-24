@@ -1,0 +1,117 @@
+exercises:
+  - id: 01-hello-world
+    title: Hello, World
+    order: 1
+    narrative: |
+      Write a program that prints `Hello, World!` to the console.
+
+      Requirements:
+      - Use `package main`
+      - Import `fmt`
+      - Call `fmt.Println` with the message
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          // Print Hello, World! below
+
+      }
+    hint: Use fmt.Println("Hello, World!")
+    checks:
+      - type: contains
+        value: 'package main'
+      - type: contains
+        value: '"fmt"'
+      - type: contains
+        value: 'fmt.Println'
+      - type: contains
+        value: 'Hello, World!'
+
+  - id: 01-two-lines
+    title: Two Lines of Output
+    order: 2
+    narrative: |
+      Print two lines:
+      1. `Learning Go`
+      2. `Let's go!`
+
+      Use two separate `fmt.Println` calls.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+
+      }
+    hint: Add two fmt.Println calls, one for each line.
+    checks:
+      - type: regex
+        pattern: 'fmt\.Println\([^)]+\)'
+        message: Use at least one fmt.Println call.
+      - type: contains
+        value: 'Learning Go'
+      - type: contains
+        value: "Let's go!"
+      - type: go_test
+        test: |
+          package main
+
+          import "testing"
+
+          func TestTwoLines(t *testing.T) {
+              // compile-only check; output verified by contains checks
+              if false {
+                  t.Fatal("unexpected")
+              }
+          }
+
+  - id: 01-print-name
+    title: Print Your Language
+    order: 3
+    narrative: |
+      Print the line: `My first Go program`
+
+      Make sure your program compiles and runs with `go run`.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+
+      }
+    hint: One fmt.Println with the exact string.
+    checks:
+      - type: contains
+        value: 'My first Go program'
+      - type: regex
+        pattern: 'func main\(\)'
+      - type: go_test
+        test: |
+          package main
+
+          import (
+              "bytes"
+              "os"
+              "os/exec"
+              "strings"
+              "testing"
+          )
+
+          func TestPrintName(t *testing.T) {
+              cmd := exec.Command("go", "run", "main.go")
+              cmd.Dir = "."
+              var out bytes.Buffer
+              cmd.Stdout = &out
+              cmd.Stderr = &out
+              if err := cmd.Run(); err != nil {
+                  t.Fatalf("go run failed: %v\n%s", err, out.String())
+              }
+              if !strings.Contains(out.String(), "My first Go program") {
+                  t.Fatalf("expected output, got: %q", out.String())
+              }
+              _ = os.Getenv
+          }

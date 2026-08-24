@@ -1,0 +1,165 @@
+exercises:
+  - id: 12-health-handler
+    title: Health Handler
+    order: 1
+    narrative: |
+      Implement `healthHandler` writing JSON `{"status":"ok"}` with Content-Type application/json.
+      Register GET `/health` on a chi router in main (ListenAndServe optional — test uses httptest).
+    starterCode: |
+      package main
+
+      import (
+          "net/http"
+
+          "github.com/go-chi/chi/v5"
+      )
+
+      func main() {
+          r := chi.NewRouter()
+          r.Get("/health", healthHandler)
+          _ = r
+      }
+
+    hint: Set header, WriteHeader 200, write JSON body
+    checks:
+      - type: contains
+        value: 'func healthHandler'
+      - type: contains
+        value: 'application/json'
+      - type: go_test
+        test: |
+          package main
+
+          import (
+              "net/http"
+              "net/http/httptest"
+              "strings"
+              "testing"
+
+              "github.com/go-chi/chi/v5"
+          )
+
+          func TestHealth(t *testing.T) {
+              r := chi.NewRouter()
+              r.Get("/health", healthHandler)
+              req := httptest.NewRequest(http.MethodGet, "/health", nil)
+              rec := httptest.NewRecorder()
+              r.ServeHTTP(rec, req)
+              if rec.Code != http.StatusOK {
+                  t.Fatalf("status %d", rec.Code)
+              }
+              if !strings.Contains(rec.Body.String(), "ok") {
+                  t.Fatalf("body %q", rec.Body.String())
+              }
+          }
+    files:
+      go.mod: |
+        module exercise
+
+        go 1.21
+
+        require github.com/go-chi/chi/v5 v5.0.12
+
+  - id: 12-url-param
+    title: Account by ID
+    order: 2
+    narrative: |
+      Handler `getAccount` reads `chi.URLParam(r, "id")`.
+      If id is empty write 404, else 200 with body containing the id.
+    starterCode: |
+      package main
+
+      import (
+          "net/http"
+
+          "github.com/go-chi/chi/v5"
+      )
+
+      func getAccount(w http.ResponseWriter, r *http.Request) {
+
+      }
+
+    hint: id := chi.URLParam(r, "id"); if id == "" { 404 }
+    checks:
+      - type: contains
+        value: 'chi.URLParam'
+      - type: go_test
+        test: |
+          package main
+
+          import (
+              "net/http"
+              "net/http/httptest"
+              "testing"
+
+              "github.com/go-chi/chi/v5"
+          )
+
+          func TestGetAccount(t *testing.T) {
+              r := chi.NewRouter()
+              r.Get("/accounts/{id}", getAccount)
+              req := httptest.NewRequest(http.MethodGet, "/accounts/ACC1", nil)
+              rec := httptest.NewRecorder()
+              r.ServeHTTP(rec, req)
+              if rec.Code != http.StatusOK {
+                  t.Fatalf("status %d", rec.Code)
+              }
+          }
+    files:
+      go.mod: |
+        module exercise
+
+        go 1.21
+
+        require github.com/go-chi/chi/v5 v5.0.12
+
+  - id: 12-post-dto
+    title: POST JSON DTO
+    order: 3
+    narrative: |
+      `createTransfer` decodes JSON into `TransferRequest` (to_account, amount).
+      On decode error return 400. On success return 201 and write amount in body.
+    starterCode: |
+      package main
+
+      import (
+          "encoding/json"
+          "net/http"
+      )
+
+      type TransferRequest struct {
+          ToAccount string `json:"to_account"`
+          Amount    int64  `json:"amount"`
+      }
+
+      func createTransfer(w http.ResponseWriter, r *http.Request) {
+
+      }
+
+    hint: json.NewDecoder(r.Body).Decode(&req)
+    checks:
+      - type: contains
+        value: 'json.NewDecoder'
+      - type: contains
+        value: 'http.StatusBadRequest'
+      - type: go_test
+        test: |
+          package main
+
+          import (
+              "net/http"
+              "net/http/httptest"
+              "strings"
+              "testing"
+          )
+
+          func TestCreateTransfer(t *testing.T) {
+              body := strings.NewReader(`{"to_account":"ACC2","amount":1000}`)
+              req := httptest.NewRequest(http.MethodPost, "/transfer", body)
+              req.Header.Set("Content-Type", "application/json")
+              rec := httptest.NewRecorder()
+              createTransfer(rec, req)
+              if rec.Code != http.StatusCreated {
+                  t.Fatalf("status %d body %s", rec.Code, rec.Body.String())
+              }
+          }

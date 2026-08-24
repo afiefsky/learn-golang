@@ -1,0 +1,63 @@
+exercises:
+  - id: 04-count-to-five
+    title: Count to Five
+    order: 1
+    narrative: |
+      Use a `for` loop to print numbers 1 through 5 (one per line).
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+
+      }
+    hint: 'for i := 1; i <= 5; i++ { fmt.Println(i) }'
+    checks:
+      - type: contains
+        value: 'for'
+      - type: contains
+        value: 'fmt.Println'
+
+  - id: 04-sum-slice
+    title: Sum a Slice
+    order: 2
+    narrative: |
+      Given `amounts := []int{100, 200, 50}`, compute the total using `range` and print it.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          amounts := []int{100, 200, 50}
+
+      }
+    hint: Loop with range, add to a total variable, print total.
+    checks:
+      - type: contains
+        value: 'range'
+      - type: contains
+        value: '350'
+
+  - id: 04-skip-index
+    title: Values Only
+    order: 3
+    narrative: |
+      Print each currency code in `codes := []string{"IDR", "USD", "SGD"}` using `range`.
+      Use `_` for the index. One code per line.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          codes := []string{"IDR", "USD", "SGD"}
+
+      }
+    hint: 'for _, code := range codes { fmt.Println(code) }'
+    checks:
+      - type: contains
+        value: '_,'
+      - type: contains
+        value: '"IDR"'

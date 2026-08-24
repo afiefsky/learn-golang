@@ -1,0 +1,80 @@
+exercises:
+  - id: 10-goroutine
+    title: Hello Goroutine
+    order: 1
+    narrative: |
+      Use `go fmt.Println("async")` and `time.Sleep(time.Millisecond)` so main waits briefly.
+      Import "time". Print "sync" from main after sleep.
+    starterCode: |
+      package main
+
+      import (
+          "fmt"
+          "time"
+      )
+
+      func main() {
+          // start goroutine printing async
+
+          time.Sleep(50 * time.Millisecond)
+          fmt.Println("sync")
+      }
+
+    hint: go fmt.Println("async") before sleep
+    checks:
+      - type: contains
+        value: 'go fmt.Println'
+      - type: contains
+        value: 'time.Sleep'
+
+  - id: 10-channel
+    title: Channel Signal
+    order: 2
+    narrative: |
+      Create `ch := make(chan string)`, send `"OK"` in a goroutine, receive and print in main.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          ch := make(chan string)
+
+      }
+
+    hint: go func() { ch <- "OK" }(); fmt.Println(<-ch)
+    checks:
+      - type: contains
+        value: 'make(chan string)'
+      - type: contains
+        value: '<-ch'
+      - type: contains
+        value: '"OK"'
+
+  - id: 10-waitgroup
+    title: WaitGroup
+    order: 3
+    narrative: |
+      Use sync.WaitGroup to run two goroutines that each print "worker".
+      Call wg.Wait() before main exits. Import "sync".
+    starterCode: |
+      package main
+
+      import (
+          "fmt"
+          "sync"
+      )
+
+      func main() {
+          var wg sync.WaitGroup
+
+      }
+
+    hint: wg.Add(2), two goroutines with defer wg.Done(), wg.Wait()
+    checks:
+      - type: contains
+        value: 'sync.WaitGroup'
+      - type: contains
+        value: 'wg.Wait'
+      - type: contains
+        value: 'worker'

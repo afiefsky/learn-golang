@@ -1,0 +1,3 @@
+id: 10-concurrency
+title: Concurrency Intro
+description: Goroutines and channels for async work — common in high-throughput fintech services.

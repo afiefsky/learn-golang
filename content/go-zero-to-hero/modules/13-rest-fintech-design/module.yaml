@@ -1,0 +1,3 @@
+id: 13-rest-fintech-design
+title: REST Design for Fintech
+description: Versioning, status codes, idempotency, and error envelopes for banking APIs.

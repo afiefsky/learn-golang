@@ -1,0 +1,34 @@
+{
+  "id": "16-capstone-transfer-api-quiz",
+  "title": "Capstone Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "Capstone transfer debit+credit must be?",
+      "options": ["In one DB transaction", "Two HTTP calls", "Optional", "Client-side only"],
+      "answer": 0
+    },
+    {
+      "type": "mcq",
+      "question": "Best reason for Idempotency-Key on transfers?",
+      "options": ["Faster JSON", "Safe client retries", "Smaller JWT", "CSS theming"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Recommended router for capstone is _______.",
+      "answer": "chi"
+    },
+    {
+      "type": "mcq",
+      "question": "Handler should talk directly to SQL without service layer?",
+      "options": ["Always", "Layered handler→service→repo is cleaner", "Never use SQL", "Only in tests"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Public API structs are called _______.",
+      "answer": "dtos"
+    }
+  ]
+}

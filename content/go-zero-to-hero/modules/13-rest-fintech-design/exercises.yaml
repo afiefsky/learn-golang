@@ -1,0 +1,72 @@
+exercises:
+  - id: 13-error-envelope
+    title: API Error Struct
+    order: 1
+    narrative: |
+      Define `APIError` with Code, Message (json tags lowercase).
+      Function `func writeError(w http.ResponseWriter, code int, apiErr APIError)` sets JSON content-type, status, marshals body.
+    starterCode: |
+      package main
+
+      import (
+          "encoding/json"
+          "net/http"
+      )
+
+    hint: w.Header().Set("Content-Type", "application/json"); w.WriteHeader(code); json.NewEncoder(w).Encode(apiErr)
+    checks:
+      - type: contains
+        value: 'type APIError struct'
+      - type: contains
+        value: 'json.NewEncoder'
+      - type: contains
+        value: 'application/json'
+
+  - id: 13-status-helper
+    title: Status Code Helper
+    order: 2
+    narrative: |
+      Write `func statusForDuplicate(conflict bool) int` returning 409 if conflict else 201.
+      Print both results in main using fmt.Println.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          fmt.Println(statusForDuplicate(true))
+          fmt.Println(statusForDuplicate(false))
+      }
+
+    hint: if conflict { return http.StatusConflict }; return http.StatusCreated — import net/http
+    checks:
+      - type: contains
+        value: '409'
+      - type: contains
+        value: '201'
+
+  - id: 13-idempotency-check
+    title: Idempotency Map
+    order: 3
+    narrative: |
+      Given `seen := map[string]bool`, write `func isReplay(key string) bool` returning true if key already in map, else mark seen and return false.
+      Test keys "abc" twice — print results (false then true).
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          seen := map[string]bool{}
+          fmt.Println(isReplay("abc", seen))
+          fmt.Println(isReplay("abc", seen))
+      }
+
+    hint: 'func isReplay(key string, seen map[string]bool) bool'
+    checks:
+      - type: contains
+        value: 'func isReplay'
+      - type: contains
+        value: 'true'
+      - type: contains
+        value: 'false'

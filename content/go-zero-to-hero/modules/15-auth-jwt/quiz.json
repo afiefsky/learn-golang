@@ -1,0 +1,34 @@
+{
+  "id": "15-auth-jwt-quiz",
+  "title": "Auth & JWT Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "Where does client send JWT?",
+      "options": ["Cookie only", "Authorization Bearer header", "JSON body only", "URL query always"],
+      "answer": 1
+    },
+    {
+      "type": "mcq",
+      "question": "Missing token on protected route returns?",
+      "options": ["200", "401", "201", "422"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Middleware wraps http._______. ",
+      "answer": "handler"
+    },
+    {
+      "type": "mcq",
+      "question": "Should access tokens be logged?",
+      "options": ["Yes for debug", "Never", "Only in production", "Only on Fridays"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Role-based access control abbreviation is _______.",
+      "answer": "rbac"
+    }
+  ]
+}

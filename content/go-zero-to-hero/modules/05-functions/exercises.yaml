@@ -1,0 +1,69 @@
+exercises:
+  - id: 05-greet
+    title: Greet Function
+    order: 1
+    narrative: |
+      Write `func greet(name string) string` that returns `"Hello, " + name`.
+
+      In main, print the result of `greet("Banker")`.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          fmt.Println(greet("Banker"))
+      }
+
+    hint: 'func greet(name string) string { return "Hello, " + name }'
+    checks:
+      - type: contains
+        value: 'func greet'
+      - type: contains
+        value: 'Hello,'
+      - type: contains
+        value: 'Banker'
+
+  - id: 05-add
+    title: Add Two Numbers
+    order: 2
+    narrative: |
+      Write `func add(a, b int) int` returning the sum.
+      Print `add(100, 250)` in main.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          fmt.Println(add(100, 250))
+      }
+
+    hint: Return a + b from add.
+    checks:
+      - type: regex
+        pattern: 'func add\([^)]+\)\s+int'
+      - type: contains
+        value: '350'
+
+  - id: 05-fee
+    title: Transfer Fee
+    order: 3
+    narrative: |
+      Write `func transferFee(amount int) int` — fee is 6500 IDR flat if amount < 50000, else 0.
+      Print fee for amount 25000 (expect 6500).
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          fmt.Println(transferFee(25000))
+      }
+
+    hint: if amount < 50000 { return 6500 }; return 0
+    checks:
+      - type: contains
+        value: 'func transferFee'
+      - type: contains
+        value: '6500'

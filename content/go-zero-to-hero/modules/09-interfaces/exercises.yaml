@@ -1,0 +1,78 @@
+exercises:
+  - id: 09-define-interface
+    title: Stringer-style
+    order: 1
+    narrative: |
+      Define `type Formatted interface { Format() string }`.
+      Create `type Amount int64` with method `Format() string` returning `"IDR "` + value.
+      Print `Amount(50000).Format()`.
+    starterCode: |
+      package main
+
+      import (
+          "fmt"
+          "strconv"
+      )
+
+      type Amount int64
+
+      func main() {
+          a := Amount(50000)
+          fmt.Println(a.Format())
+      }
+
+    hint: func (a Amount) Format() string { return "IDR " + strconv.FormatInt(int64(a), 10) }
+    checks:
+      - type: contains
+        value: 'func (a Amount) Format() string'
+      - type: contains
+        value: 'IDR'
+
+  - id: 09-interface-param
+    title: Accept Interface
+    order: 2
+    narrative: |
+      Define `type Notifier interface { Notify(msg string) }`.
+      Implement `SMSNotifier` with empty struct and Notify printing the msg.
+      Write `func sendAlert(n Notifier, msg string)` calling n.Notify.
+      Use it in main.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          sendAlert(SMSNotifier{}, "Transfer complete")
+      }
+
+    hint: Define interface, SMSNotifier type, Notify method, sendAlert function
+    checks:
+      - type: contains
+        value: 'type Notifier interface'
+      - type: contains
+        value: 'Transfer complete'
+
+  - id: 09-mock
+    title: In-Memory Repo
+    order: 3
+    narrative: |
+      Define `BalanceReader` with `GetBalance(string) (int64, error)`.
+      Implement `MemoryRepo` with map[string]int64 and GetBalance method.
+      Print balance for existing account.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          repo := MemoryRepo{data: map[string]int64{"ACC001": 1000000}}
+          b, _ := repo.GetBalance("ACC001")
+          fmt.Println(b)
+      }
+
+    hint: type MemoryRepo struct { data map[string]int64 } and GetBalance method
+    checks:
+      - type: contains
+        value: 'GetBalance'
+      - type: contains
+        value: '1000000'

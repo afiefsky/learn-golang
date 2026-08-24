@@ -1,0 +1,78 @@
+exercises:
+  - id: 07-define-account
+    title: Define Account
+    order: 1
+    narrative: |
+      Define `type Account struct` with fields `Number string` and `Balance int64`.
+      Create one account with Number `"ACC001"` and Balance `500000`, print the number.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+
+      }
+    hint: type Account struct { Number string; Balance int64 }
+    checks:
+      - type: contains
+        value: 'type Account struct'
+      - type: contains
+        value: 'ACC001'
+
+  - id: 07-method
+    title: Has Balance Method
+    order: 2
+    narrative: |
+      Add method `func (a Account) HasFunds(amount int64) bool` returning true if Balance >= amount.
+      Test with an account and print result for amount 100000.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      type Account struct {
+          Number  string
+          Balance int64
+      }
+
+      func main() {
+          acc := Account{Number: "ACC001", Balance: 500000}
+          fmt.Println(acc.HasFunds(100000))
+      }
+
+    hint: return a.Balance >= amount
+    checks:
+      - type: contains
+        value: 'func (a Account) HasFunds'
+      - type: contains
+        value: 'true'
+
+  - id: 07-pointer-receiver
+    title: Debit with Pointer
+    order: 3
+    narrative: |
+      Add `func (a *Account) Debit(amount int64)` subtracting from Balance.
+      Debit 50000 from account starting at 500000, print new balance (450000).
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      type Account struct {
+          Number  string
+          Balance int64
+      }
+
+      func main() {
+          acc := Account{Number: "ACC001", Balance: 500000}
+          acc.Debit(50000)
+          fmt.Println(acc.Balance)
+      }
+
+    hint: Use pointer receiver and a.Balance -= amount
+    checks:
+      - type: contains
+        value: 'func (a *Account) Debit'
+      - type: contains
+        value: '450000'

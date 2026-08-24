@@ -1,0 +1,70 @@
+exercises:
+  - id: 15-bearer-parse
+    title: Parse Bearer Token
+    order: 1
+    narrative: |
+      Write `func bearerToken(r *http.Request) string` stripping `Bearer ` prefix from Authorization header.
+      Return empty if missing.
+    starterCode: |
+      package main
+
+      import (
+          "net/http"
+          "strings"
+      )
+
+    hint: strings.TrimPrefix(r.Header.Get("Authorization"), "Bearer ")
+    checks:
+      - type: contains
+        value: 'func bearerToken'
+      - type: contains
+        value: 'Bearer '
+
+  - id: 15-auth-middleware
+    title: Simple Auth Middleware
+    order: 2
+    narrative: |
+      Middleware returns 401 if Authorization header empty, else calls next.
+      Name it `requireAuth`.
+    starterCode: |
+      package main
+
+      import "net/http"
+
+      func requireAuth(next http.Handler) http.Handler {
+
+      }
+
+    hint: http.HandlerFunc wrapper checking r.Header.Get("Authorization")
+    checks:
+      - type: contains
+        value: 'func requireAuth'
+      - type: contains
+        value: '401'
+      - type: contains
+        value: 'Unauthorized'
+
+  - id: 15-rbac
+    title: Role Check
+    order: 3
+    narrative: |
+      `func canTransfer(role string) bool` — true for "customer" or "admin", false otherwise.
+      Print results for customer and guest.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          fmt.Println(canTransfer("customer"))
+          fmt.Println(canTransfer("guest"))
+      }
+
+    hint: switch role or if role == "customer" || role == "admin"
+    checks:
+      - type: contains
+        value: 'func canTransfer'
+      - type: contains
+        value: 'true'
+      - type: contains
+        value: 'false'

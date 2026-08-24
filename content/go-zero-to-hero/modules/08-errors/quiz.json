@@ -1,0 +1,34 @@
+{
+  "id": "08-errors-quiz",
+  "title": "Error Handling Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "What is the idiomatic way to check errors in Go?",
+      "options": ["try/catch", "if err != nil", "panic always", "ignore err"],
+      "answer": 1
+    },
+    {
+      "type": "mcq",
+      "question": "What does a successful operation usually return as error?",
+      "options": ["nil", "false", "0", "empty string"],
+      "answer": 0
+    },
+    {
+      "type": "fill",
+      "question": "Package for creating simple errors is _______.",
+      "answer": "errors"
+    },
+    {
+      "type": "mcq",
+      "question": "In banking code, ignored errors can cause?",
+      "options": ["Faster APIs", "Silent money bugs", "Better UX", "Smaller binaries"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Formatted errors often use fmt._______.",
+      "answer": "errorf"
+    }
+  ]
+}

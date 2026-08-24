@@ -1,0 +1,112 @@
+exercises:
+  - id: 03-if-else
+    title: Pass or Fail
+    order: 1
+    narrative: |
+      Given `score := 72`, use `if` / `else`:
+      - If score >= 70, print `Pass`
+      - Otherwise print `Fail`
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          score := 72
+
+      }
+    hint: 'if score >= 70 { fmt.Println("Pass") } else { fmt.Println("Fail") }'
+    checks:
+      - type: contains
+        value: 'if'
+      - type: contains
+        value: 'else'
+      - type: contains
+        value: '>= 70'
+      - type: contains
+        value: '"Pass"'
+      - type: contains
+        value: '"Fail"'
+
+  - id: 03-switch
+    title: Day Greeting
+    order: 2
+    narrative: |
+      Given `day := "Sat"`, use a `switch` on `day`:
+      - `"Sat"` or `"Sun"` → print `Weekend`
+      - `"Fri"` → print `TGIF`
+      - default → print `Weekday`
+
+      You can use multiple cases on one line: `case "Sat", "Sun":`
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          day := "Sat"
+
+      }
+    hint: 'switch day { case "Sat", "Sun": ... }'
+    checks:
+      - type: contains
+        value: 'switch'
+      - type: contains
+        value: 'case'
+      - type: contains
+        value: 'default'
+      - type: contains
+        value: '"Weekend"'
+
+  - id: 03-nested-if
+    title: Grade Letter
+    order: 3
+    narrative: |
+      Given `score := 88`, print a letter grade:
+      - score >= 90 → `A`
+      - score >= 80 → `B`
+      - score >= 70 → `C`
+      - else → `F`
+
+      Use if / else if chain (else if).
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          score := 88
+
+      }
+    hint: 'if score >= 90 { ... } else if score >= 80 { ... }'
+    checks:
+      - type: regex
+        pattern: 'else if'
+      - type: contains
+        value: '>= 90'
+      - type: contains
+        value: '>= 80'
+      - type: contains
+        value: '"B"'
+      - type: go_test
+        test: |
+          package main
+
+          import (
+              "bytes"
+              "os/exec"
+              "strings"
+              "testing"
+          )
+
+          func TestGradeB(t *testing.T) {
+              cmd := exec.Command("go", "run", "main.go")
+              var out bytes.Buffer
+              cmd.Stdout = &out
+              if err := cmd.Run(); err != nil {
+                  t.Fatal(err)
+              }
+              if !strings.Contains(out.String(), "B") {
+                  t.Fatalf("expected B for score 88, got %q", out.String())
+              }
+          }

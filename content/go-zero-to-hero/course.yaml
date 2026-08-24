@@ -1,0 +1,20 @@
+id: go-zero-to-hero
+title: Go Zero to Hero — Fintech Edition
+description: Go fundamentals through REST APIs, DTOs, and Chi — tuned for banking/fintech engineering in Indonesia.
+modules:
+  - 01-getting-started
+  - 02-variables
+  - 03-control-flow
+  - 04-loops
+  - 05-functions
+  - 06-collections
+  - 07-structs
+  - 08-errors
+  - 09-interfaces
+  - 10-concurrency
+  - 11-json-and-dtos
+  - 12-chi-rest-api
+  - 13-rest-fintech-design
+  - 14-postgres-transactions
+  - 15-auth-jwt
+  - 16-capstone-transfer-api

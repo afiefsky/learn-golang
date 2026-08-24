@@ -1,0 +1,3 @@
+id: 12-chi-rest-api
+title: Chi REST API
+description: Build HTTP routes, handlers, and middleware with go-chi/chi.

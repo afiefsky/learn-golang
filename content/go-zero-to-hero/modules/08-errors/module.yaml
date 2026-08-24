@@ -1,0 +1,3 @@
+id: 08-errors
+title: Error Handling
+description: Handle failures explicitly with Go's error interface.

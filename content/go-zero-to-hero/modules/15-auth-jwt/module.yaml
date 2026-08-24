@@ -1,0 +1,3 @@
+id: 15-auth-jwt
+title: Auth, JWT & Middleware
+description: Bearer tokens, middleware, and RBAC basics for secured APIs.

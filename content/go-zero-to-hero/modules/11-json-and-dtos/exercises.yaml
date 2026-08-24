@@ -1,0 +1,90 @@
+exercises:
+  - id: 11-transfer-request
+    title: TransferRequest DTO
+    order: 1
+    narrative: |
+      Define `TransferRequest` with json tags:
+      - `ToAccount string` → `json:"to_account"`
+      - `Amount int64` → `json:"amount"`
+
+      Unmarshal JSON `{"to_account":"ACC002","amount":50000}` and print amount.
+    starterCode: |
+      package main
+
+      import (
+          "encoding/json"
+          "fmt"
+      )
+
+      func main() {
+          body := []byte(`{"to_account":"ACC002","amount":50000}`)
+
+      }
+    hint: var req TransferRequest; json.Unmarshal(body, &req); fmt.Println(req.Amount)
+    checks:
+      - type: contains
+        value: 'type TransferRequest struct'
+      - type: contains
+        value: 'json:"to_account"'
+      - type: contains
+        value: '50000'
+
+  - id: 11-account-response
+    title: AccountResponse Mapper
+    order: 2
+    narrative: |
+      Internal `Account` has Number, Balance, InternalNote.
+      Public `AccountResponse` has only Number and Balance (json tags).
+      Write `func toResponse(a Account) AccountResponse` and use it in main.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      type Account struct {
+          Number       string
+          Balance      int64
+          InternalNote string
+      }
+
+      func main() {
+          acc := Account{Number: "ACC001", Balance: 1000000, InternalNote: "VIP"}
+          resp := toResponse(acc)
+          fmt.Println(resp.Number, resp.Balance)
+      }
+
+    hint: AccountResponse without InternalNote field
+    checks:
+      - type: contains
+        value: 'type AccountResponse struct'
+      - type: contains
+        value: 'func toResponse'
+      - type: regex
+        pattern: 'type AccountResponse struct \{[^}]+\}'
+        message: AccountResponse should not include InternalNote.
+
+  - id: 11-marshal
+    title: Marshal Response
+    order: 3
+    narrative: |
+      Create `ErrorResponse` with `Code string` and `Message string` json tags.
+      Marshal `ErrorResponse{Code: "INVALID_AMOUNT", Message: "amount must be positive"}` and print JSON string.
+    starterCode: |
+      package main
+
+      import (
+          "encoding/json"
+          "fmt"
+      )
+
+      func main() {
+
+      }
+    hint: json.Marshal returns []byte, convert to string for println
+    checks:
+      - type: contains
+        value: 'json.Marshal'
+      - type: contains
+        value: 'INVALID_AMOUNT'
+      - type: contains
+        value: 'json:"code"'

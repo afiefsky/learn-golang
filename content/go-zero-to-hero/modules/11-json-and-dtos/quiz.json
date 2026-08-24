@@ -1,0 +1,34 @@
+{
+  "id": "11-json-and-dtos-quiz",
+  "title": "JSON & DTOs Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "Why not return DB models directly from REST APIs?",
+      "options": ["Go forbids it", "Leaks internal fields and couples API to schema", "JSON cannot encode structs", "Chi requires DTOs"],
+      "answer": 1
+    },
+    {
+      "type": "mcq",
+      "question": "What does omitempty on a json tag do?",
+      "options": ["Makes field required", "Omits field when zero value", "Encrypts field", "Validates field"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Package for JSON in stdlib is encoding/_______.",
+      "answer": "json"
+    },
+    {
+      "type": "mcq",
+      "question": "TransferRequest is typically a?",
+      "options": ["Request DTO", "Database table", "Middleware", "Router"],
+      "answer": 0
+    },
+    {
+      "type": "fill",
+      "question": "To parse JSON bytes into a struct use json._______.",
+      "answer": "unmarshal"
+    }
+  ]
+}

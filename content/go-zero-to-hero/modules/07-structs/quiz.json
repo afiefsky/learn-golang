@@ -1,0 +1,34 @@
+{
+  "id": "07-structs-quiz",
+  "title": "Structs Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "What keyword defines a new struct type?",
+      "options": ["struct", "type", "class", "record"],
+      "answer": 1
+    },
+    {
+      "type": "mcq",
+      "question": "When should you use a pointer receiver *Account?",
+      "options": ["Always", "When method mutates the struct", "Never in Go", "Only for JSON"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Structs are the foundation for API _______ in Go.",
+      "answer": "dtos"
+    },
+    {
+      "type": "mcq",
+      "question": "Field names starting with lowercase are?",
+      "options": ["Exported", "Unexported (package-private)", "Invalid", "Deprecated"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Syntax for a method on Account is func (a Account) MethodName(_______).",
+      "answer": ")"
+    }
+  ]
+}

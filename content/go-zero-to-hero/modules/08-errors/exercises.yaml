@@ -1,0 +1,88 @@
+exercises:
+  - id: 08-return-error
+    title: Return an Error
+    order: 1
+    narrative: |
+      Write `func withdraw(balance, amount int64) (int64, error)`.
+      If amount > balance, return 0 and `errors.New("insufficient funds")`.
+      Otherwise return new balance and nil error.
+
+      In main, try withdraw(1000, 5000) and print the error if any.
+    starterCode: |
+      package main
+
+      import (
+          "errors"
+          "fmt"
+      )
+
+      func main() {
+          _, err := withdraw(1000, 5000)
+          if err != nil {
+              fmt.Println(err)
+          }
+      }
+
+    hint: import errors, return errors.New("insufficient funds")
+    checks:
+      - type: contains
+        value: 'errors.New'
+      - type: contains
+        value: 'insufficient funds'
+
+  - id: 08-check-error
+    title: Check Before Use
+    order: 2
+    narrative: |
+      Complete `parseAmount` — return error if s is empty string.
+      Use `fmt.Errorf("empty amount")`.
+      Main calls it with "" and prints err.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func parseAmount(s string) (int, error) {
+          // add check here
+
+          return 0, nil
+      }
+
+      func main() {
+          _, err := parseAmount("")
+          fmt.Println(err)
+      }
+
+    hint: if s == "" { return 0, fmt.Errorf("empty amount") }
+    checks:
+      - type: contains
+        value: 'fmt.Errorf'
+      - type: contains
+        value: 'empty amount'
+
+  - id: 08-wrap-message
+    title: Error Message
+    order: 3
+    narrative: |
+      Implement `func validateAmount(amount int64) error` returning error if amount <= 0
+      with message `"amount must be positive"`.
+      Print error from validateAmount(-100).
+    starterCode: |
+      package main
+
+      import (
+          "errors"
+          "fmt"
+      )
+
+      func main() {
+          err := validateAmount(-100)
+          fmt.Println(err)
+      }
+
+    hint: if amount <= 0 { return errors.New("amount must be positive") }; return nil
+    checks:
+      - type: contains
+        value: 'func validateAmount'
+      - type: contains
+        value: 'amount must be positive'

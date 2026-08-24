@@ -1,0 +1,34 @@
+{
+  "id": "09-interfaces-quiz",
+  "title": "Interfaces Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "How does a type implement an interface in Go?",
+      "options": ["explicit implements keyword", "implicitly by having the methods", "via inheritance", "via embedding only"],
+      "answer": 1
+    },
+    {
+      "type": "mcq",
+      "question": "Why use interfaces in service layers?",
+      "options": ["Slower code", "Easier testing and swapping implementations", "Required by Chi", "For JSON only"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Go prefers _______ interfaces with few methods.",
+      "answer": "small"
+    },
+    {
+      "type": "mcq",
+      "question": "An interface describes?",
+      "options": ["Data fields only", "Method signatures (behavior)", "Package imports", "JSON tags"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Empty interface in older Go is written as _______.",
+      "answer": "interface{}"
+    }
+  ]
+}

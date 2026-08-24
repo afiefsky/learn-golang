@@ -1,0 +1,34 @@
+{
+  "id": "04-loops-quiz",
+  "title": "Loops Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "What is the only loop keyword in Go?",
+      "options": ["while", "loop", "for", "repeat"],
+      "answer": 2
+    },
+    {
+      "type": "mcq",
+      "question": "What does range return when iterating a slice?",
+      "options": ["index and value", "value only", "key and value", "pointer and value"],
+      "answer": 0
+    },
+    {
+      "type": "fill",
+      "question": "To ignore the index in range, use _______ as the first variable.",
+      "answer": "_"
+    },
+    {
+      "type": "mcq",
+      "question": "Can for be used as a while-style loop in Go?",
+      "options": ["Yes", "No"],
+      "answer": 0
+    },
+    {
+      "type": "fill",
+      "question": "The loop clause for incrementing i is written i______.",
+      "answer": "++"
+    }
+  ]
+}

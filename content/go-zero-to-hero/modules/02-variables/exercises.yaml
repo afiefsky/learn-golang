@@ -1,0 +1,85 @@
+exercises:
+  - id: 02-declare-string
+    title: Declare a String
+    order: 1
+    narrative: |
+      Create a variable `language` with the value `"Go"` using short declaration (`:=`).
+
+      Print it with `fmt.Println`.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+
+      }
+    hint: language := "Go"
+    checks:
+      - type: contains
+        value: ':='
+      - type: contains
+        value: 'language'
+      - type: contains
+        value: '"Go"'
+      - type: contains
+        value: 'fmt.Println'
+
+  - id: 02-int-and-bool
+    title: Int and Bool
+    order: 2
+    narrative: |
+      Declare:
+      - `year` as int with value `2009` (Go's release year)
+      - `awesome` as bool with value `true`
+
+      Print both on one line using a single `fmt.Println`.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+
+      }
+    hint: year := 2009 and awesome := true, then fmt.Println(year, awesome)
+    checks:
+      - type: contains
+        value: 'year'
+      - type: contains
+        value: '2009'
+      - type: contains
+        value: 'awesome'
+      - type: contains
+        value: 'true'
+      - type: regex
+        pattern: 'fmt\.Println\([^)]*year[^)]*awesome|fmt\.Println\([^)]*awesome[^)]*year'
+
+  - id: 02-var-keyword
+    title: Using var
+    order: 3
+    narrative: |
+      Declare `greeting` using the `var` keyword (not `:=`):
+
+      ```go
+      var greeting string = "Welcome to Go"
+      ```
+
+      Print `greeting`.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+
+      }
+    hint: Use var greeting string = "Welcome to Go"
+    checks:
+      - type: regex
+        pattern: 'var\s+greeting\s+string\s*='
+      - type: contains
+        value: 'Welcome to Go'
+      - type: not_contains
+        value: 'greeting :='
+        message: Use var, not := for this exercise.

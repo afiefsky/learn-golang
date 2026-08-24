@@ -1,0 +1,35 @@
+{
+  "id": "13-rest-fintech-design-quiz",
+  "title": "REST Fintech Design Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "Duplicate transfer with same Idempotency-Key should return?",
+      "options": ["500", "409 or cached 201", "401", "404"],
+      "answer": 1
+    },
+    {
+      "type": "mcq",
+      "question": "Invalid JSON body should return?",
+      "options": ["200", "400", "201", "503"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "API version prefix commonly used is /_______.",
+      "answer": "v1"
+    },
+    {
+      "type": "mcq",
+      "question": "What should NOT appear in audit logs?",
+      "options": ["Request ID", "User ID", "Plaintext passwords", "HTTP method"],
+      "answer": 2
+    },
+    {
+      "type": "mcq",
+      "question": "Insufficient balance is best mapped to?",
+      "options": ["200 OK", "422 business error", "301 redirect", "204 no content"],
+      "answer": 1
+    }
+  ]
+}

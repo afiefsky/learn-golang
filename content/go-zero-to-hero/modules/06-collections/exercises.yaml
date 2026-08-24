@@ -1,0 +1,64 @@
+exercises:
+  - id: 06-append-slice
+    title: Build a Slice
+    order: 1
+    narrative: |
+      Start with empty `var txs []string` and append three IDs: `"TX1"`, `"TX2"`, `"TX3"`.
+      Print `len(txs)`.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+
+      }
+    hint: Use append three times, then fmt.Println(len(txs))
+    checks:
+      - type: contains
+        value: 'append'
+      - type: contains
+        value: '3'
+
+  - id: 06-map-lookup
+    title: Map Lookup
+    order: 2
+    narrative: |
+      Create `rates := map[string]float64{"USD": 15500, "SGD": 11500}`.
+      Print the USD rate using map access.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+
+      }
+    hint: fmt.Println(rates["USD"])
+    checks:
+      - type: contains
+        value: 'map[string]float64'
+      - type: contains
+        value: '15500'
+
+  - id: 06-map-ok
+    title: Safe Map Read
+    order: 3
+    narrative: |
+      Given the map below, check if `"EUR"` exists using `value, ok := m["EUR"]`.
+      If not ok, print `"not found"`.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          m := map[string]int{"USD": 1, "IDR": 15500}
+
+      }
+    hint: 'if !ok { fmt.Println("not found") }'
+    checks:
+      - type: contains
+        value: ', ok :='
+      - type: contains
+        value: 'not found'

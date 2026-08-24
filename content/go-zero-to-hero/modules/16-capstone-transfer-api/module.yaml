@@ -1,0 +1,23 @@
+id: 16-capstone-transfer-api
+title: Capstone — Transfer API
+description: Build a portfolio-ready mini banking API with Chi, DTOs, and best practices.
+
+project:
+  title: Mini Transfer API Capstone
+  items:
+    - id: chi-router
+      text: Chi router with /v1 route group
+    - id: post-accounts
+      text: POST /v1/accounts — create account DTO
+    - id: get-account
+      text: GET /v1/accounts/{id} — response DTO
+    - id: post-transfers
+      text: POST /v1/transfers with Idempotency-Key header
+    - id: error-envelope
+      text: Consistent JSON error envelope on failures
+    - id: auth-middleware
+      text: Bearer auth middleware on protected routes
+    - id: persistence
+      text: SQLite or PostgreSQL storage with transfer transaction
+    - id: readme
+      text: README with curl examples for interview demo

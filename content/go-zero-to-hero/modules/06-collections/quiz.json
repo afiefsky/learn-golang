@@ -1,0 +1,34 @@
+{
+  "id": "06-collections-quiz",
+  "title": "Collections Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "How do you add to a slice in Go?",
+      "options": ["push()", "append()", "add()", "insert()"],
+      "answer": 1
+    },
+    {
+      "type": "mcq",
+      "question": "What does ok mean in v, ok := m[key]?",
+      "options": ["Value is valid", "Key exists in map", "Map is sorted", "Value is non-zero"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "A map literal uses curly braces and _______ between key and value.",
+      "answer": ":"
+    },
+    {
+      "type": "mcq",
+      "question": "Reading a missing map key returns?",
+      "options": ["panic", "error", "zero value for type", "nil always"],
+      "answer": 2
+    },
+    {
+      "type": "fill",
+      "question": "Function to get slice length is _______.",
+      "answer": "len"
+    }
+  ]
+}

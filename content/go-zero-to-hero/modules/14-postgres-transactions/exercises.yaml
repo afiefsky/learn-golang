@@ -1,0 +1,84 @@
+exercises:
+  - id: 14-tx-interface
+    title: Tx Interface
+    order: 1
+    narrative: |
+      Define `type Ledger interface { Transfer(from, to string, amount int64) error }`.
+      Document in comment that real impl uses BeginTx/Commit/Rollback.
+      Print "ok" from main.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func main() {
+          fmt.Println("ok")
+      }
+
+    hint: Add type Ledger interface { Transfer(...) error } above main
+    checks:
+      - type: contains
+        value: 'type Ledger interface'
+      - type: contains
+        value: 'Transfer'
+
+  - id: 14-memory-tx
+    title: In-Memory Transfer
+    order: 2
+    narrative: |
+      `MemoryLedger` with map balances. `Transfer` returns error if insufficient funds else updates both accounts atomically (single function, no goroutines).
+    starterCode: |
+      package main
+
+      import (
+          "errors"
+          "fmt"
+      )
+
+      type MemoryLedger struct {
+          balances map[string]int64
+      }
+
+      func (l *MemoryLedger) Transfer(from, to string, amount int64) error {
+
+      }
+
+      func main() {
+          l := &MemoryLedger{balances: map[string]int64{"A": 1000, "B": 0}}
+          err := l.Transfer("A", "B", 300)
+          fmt.Println(err, l.balances["B"])
+      }
+
+    hint: Check balance, deduct, add, return nil
+    checks:
+      - type: contains
+        value: 'insufficient'
+      - type: contains
+        value: '300'
+
+  - id: 14-rollback-pattern
+    title: Defer Rollback
+    order: 3
+    narrative: |
+      Write pseudo-function `func withTx() error` with comments showing:
+      `tx, _ := db.Begin()`, `defer tx.Rollback()`, commit on success.
+      Print "pattern" from main.
+    starterCode: |
+      package main
+
+      import "fmt"
+
+      func withTxPatternComment() {
+          // TODO: add commented lines for Begin, defer Rollback, Commit
+      }
+
+      func main() {
+          fmt.Println("pattern")
+      }
+
+    hint: Use comments BeginTx defer Rollback Commit in function body
+    checks:
+      - type: contains
+        value: 'Rollback'
+      - type: contains
+        value: 'Commit'

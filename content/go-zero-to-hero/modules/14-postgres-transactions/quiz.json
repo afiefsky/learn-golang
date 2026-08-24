@@ -1,0 +1,34 @@
+{
+  "id": "14-postgres-transactions-quiz",
+  "title": "PostgreSQL Quiz",
+  "questions": [
+    {
+      "type": "mcq",
+      "question": "Transfer debit+credit should use?",
+      "options": ["Two separate autocommit queries", "Single database transaction", "Two HTTP requests", "goroutine per step"],
+      "answer": 1
+    },
+    {
+      "type": "mcq",
+      "question": "sqlc generates?",
+      "options": ["HTML", "Type-safe Go from SQL", "Docker files", "JWT tokens"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "On error before commit call tx._______.",
+      "answer": "rollback"
+    },
+    {
+      "type": "mcq",
+      "question": "PostgreSQL placeholder style is?",
+      "options": ["? only", "$1 $2", ":name only", "%s"],
+      "answer": 1
+    },
+    {
+      "type": "fill",
+      "question": "Standard library DB package is database/_______.",
+      "answer": "sql"
+    }
+  ]
+}

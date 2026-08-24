@@ -1,0 +1,3 @@
+id: 11-json-and-dtos
+title: JSON & DTOs
+description: Request/response structs, JSON tags, and separating API contracts from domain models.
